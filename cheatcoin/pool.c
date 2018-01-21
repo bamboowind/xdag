@@ -1,4 +1,4 @@
-/* пул и майнер, T13.744-T13.837 $DVS:time$ */
+/* pool and miner, T13.744-T13.837 $DVS:time$ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,8 +45,8 @@
 #define SECTOR0_OFFSET	0x82e9d1b5u
 #define HEADER_WORD		0x3fca9e2bu
 #define DATA_SIZE		(sizeof(struct cheatcoin_field) / sizeof(uint32_t))
-#define SEND_PERIOD		10 /* период в секундах, с которым майнер посылает пулу результаты */
-#define FUND_ADDRESS	"FQglVQtb60vQv2DOWEUL7yh3smtj7g1s" /* адрес фонда сообщества */
+#define SEND_PERIOD		10 /* the period in seconds with which the miner sends the results to the pool */
+#define FUND_ADDRESS	"njE8VwHww5tpC2opYfeHQKmFpd7TfMGJ" /* community fund address */
 
 enum miner_state {
 	MINER_BLOCK		= 1,
@@ -79,7 +79,7 @@ uint64_t g_cheatcoin_pool_ntask;
 int g_cheatcoin_mining_threads = 0;
 cheatcoin_hash_t g_cheatcoin_mined_hashes[N_CONFIRMATIONS], g_cheatcoin_mined_nonce[N_CONFIRMATIONS];
 
-/* 1 - программа работает как пул */
+/* 1 - The program works like a pool */
 static int g_cheatcoin_pool = 0, g_max_nminers = START_N_MINERS, g_max_nminers_ip = START_N_MINERS_IP, g_nminers = 0, g_socket = -1,
 		g_stop_mining = 1, g_stop_general_mining = 1;
 static double g_pool_fee = 0, g_pool_reward = 0, g_pool_direct = 0, g_pool_fund = 0;
